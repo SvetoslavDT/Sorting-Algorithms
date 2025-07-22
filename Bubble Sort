@@ -1,0 +1,25 @@
+void bubbleSort(T* arr, size_t size)
+{
+    unsigned end = size - 1;
+
+    for (size_t i = 0; i < size - 1; ++i)
+    {
+        size_t lastSwappedIndex = 0;
+
+        for (size_t j = 0; j < end; ++j)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                T temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                lastSwappedIndex = j;
+            }
+        }
+
+        end = lastSwappedIndex;
+        if (lastSwappedIndex == 0)
+            return;
+    }
+}
