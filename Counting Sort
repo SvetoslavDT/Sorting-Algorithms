@@ -1,0 +1,20 @@
+template<typename T>
+void countingSort(T* arr, size_t size)
+{
+    const size_t DIGITS_COUNT = 10;
+    T newArr[DIGITS_COUNT] = {0};
+
+    for (size_t i = 0; i < size; i++)
+    {
+        newArr[arr[i]]++;
+    }
+
+    unsigned index = 0;
+    for (size_t digit = 0; digit < DIGITS_COUNT; digit++)
+    {
+        for (size_t j = 0; j < newArr[digit]; j++)
+        {
+            arr[index++] = digit;
+        }
+    }
+}
