@@ -1,0 +1,32 @@
+template<typename T>
+size_t partition(T* arr, size_t len)
+{
+    T pivot = arr[len / 2];
+    
+    size_t i = 0;
+    size_t j = len - 1;
+
+    while (true)
+    {
+        while (arr[i] < pivot)
+            i++;
+        while (arr[j] > pivot)
+            j--;
+        if (arr[j] == arr[i])
+            i++;
+        if (i < j)
+            std::swap(arr[i], arr[j]);
+        else
+            return j;
+    }
+}
+
+template<typename T>
+void QuickSort(T* arr, size_t Size)
+{
+    if (Size <= 1)
+        return;
+    size_t pivotIndex = partition(arr, Size);
+    QuickSort(arr, pivotIndex);
+    QuickSort(arr + pivotIndex + 1, len - pivotIndex - 1);
+}
